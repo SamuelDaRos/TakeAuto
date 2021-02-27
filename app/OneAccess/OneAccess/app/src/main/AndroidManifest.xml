@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.OneAccess">
-        <activity android:name=".Registration"></activity>
+        <activity android:name=".credits"></activity>
+        <activity android:name=".Final_Activity" />
+        <activity android:name=".Registration" />
         <activity android:name=".Login" />
         <activity android:name=".MainActivity">
             <intent-filter>
