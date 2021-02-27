@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">OneAccess</string>
+    <string name="welcome">Welcome</string>
+    <string name="login">Login</string>
+    <string name="registration">Registration</string>
+    <string name="do_login">To access enter your username and password</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="password_lost">If you have lost your password press the button below</string>
+    <string name="password_lost1">Password recovery</string>
+    <string name="InsertData">Insert your info......</string>
+    <string name="InsertEmail">Email.....</string>
+    <string name="passwordConfirm" >Confirm password</string>
+    <string name="BornDay">Born Day</string>
+    <string name="PhoneNumber">Phone number</string>
+    <string name="PostalAddress">Postal address</string>
+    <string name="IdentityCard">Identity card</string>
+</resources>
