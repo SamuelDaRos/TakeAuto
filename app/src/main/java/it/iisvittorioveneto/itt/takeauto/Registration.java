@@ -33,7 +33,7 @@ public class Registration extends AppCompatActivity {
             EditText phoneNumber= findViewById(R.id.phone);
             EditText fiscalCode= findViewById(R.id.fiscalCode);
 
-            if(password.equals(confirmPassword)) {
+            if(password.getText().toString().equals(confirmPassword.getText().toString())) {
                 User user = new User(
                         email.getText().toString(),
                         username.getText().toString(),

@@ -14,7 +14,7 @@ import com.example.takeauto.R;
 
 public class Login extends AppCompatActivity {
 
-    public Boolean user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +30,7 @@ public class Login extends AppCompatActivity {
             // esito positivo -> passa alla prossima activity
             // esito negativo -> appare un toast
 
-
+            Boolean user = false;
             for(int i=0; i< MainActivity.getList().size(); i++){
                 if(MainActivity.getList().get(i).getUsername().equals(username.getText().toString()) && MainActivity.getList().get(i).getPassword().equals(password.getText().toString())){
                     user=true;
