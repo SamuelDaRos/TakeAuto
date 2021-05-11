@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -22,7 +21,7 @@ public class Login extends AppCompatActivity {
 
         Button Button1 = this.findViewById(R.id.login2);
         Button1.setOnClickListener(v3 -> {
-            EditText username= findViewById(R.id.username);
+            EditText username= findViewById(R.id.usernameRegistration);
             EditText password= findViewById(R.id.Password_login);
 
             // TODO
@@ -31,8 +30,8 @@ public class Login extends AppCompatActivity {
             // esito negativo -> appare un toast
 
             Boolean user = false;
-            for(int i=0; i< MainActivity.getList().size(); i++){
-                if(MainActivity.getList().get(i).getUsername().equals(username.getText().toString()) && MainActivity.getList().get(i).getPassword().equals(password.getText().toString())){
+            for(int i=0; i< MainActivity.userList.size(); i++){
+                if(MainActivity.userList.get(i).getUsername().equals(username.getText().toString()) && MainActivity.userList.get(i).getPassword().equals(password.getText().toString())){
                     user=true;
                     break;
                 }

@@ -26,7 +26,7 @@ public class Registration extends AppCompatActivity {
         Button button= findViewById(R.id.buttonConfirm);
         button.setOnClickListener(v -> {
             EditText email= findViewById(R.id.emailAddress);
-            EditText username= findViewById(R.id.username);
+            EditText username= findViewById(R.id.usernameRegistration);
             EditText password= findViewById(R.id.passwordRegistration);
             EditText confirmPassword= findViewById(R.id.passwordRegistrationConfirm);
             EditText dateOfBirth= findViewById(R.id.dateOfBirth);
@@ -38,7 +38,7 @@ public class Registration extends AppCompatActivity {
                         email.getText().toString(),
                         username.getText().toString(),
                         password.getText().toString(),
-                        LocalDate.parse(dateOfBirth.getText()),
+                        LocalDate.parse(dateOfBirth.getText()), //non funziona
                         phoneNumber.getText().toString(),
                         fiscalCode.getText().toString()
                 );
