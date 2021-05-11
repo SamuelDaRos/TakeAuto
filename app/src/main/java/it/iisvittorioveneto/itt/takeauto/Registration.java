@@ -1,16 +1,22 @@
 package it.iisvittorioveneto.itt.takeauto;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.takeauto.R;
 
+import java.time.LocalDate;
+
 public class Registration extends AppCompatActivity {
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,20 +25,27 @@ public class Registration extends AppCompatActivity {
         Intent intent = this.getIntent();
         Button button= findViewById(R.id.buttonConfirm);
         button.setOnClickListener(v -> {
-            EditText email= findViewById(R.id.EmailAddress);
+            EditText email= findViewById(R.id.emailAddress);
             EditText username= findViewById(R.id.username);
             EditText password= findViewById(R.id.passwordRegistration);
-            EditText password2= findViewById(R.id.passwordRegistrationConfirm);
+            EditText confirmPassword= findViewById(R.id.passwordRegistrationConfirm);
             EditText dateOfBirth= findViewById(R.id.dateOfBirth);
-            EditText phoneNumber= findViewById(R.id.Phone);
-            EditText identityCard= findViewById(R.id.fiscalCode);
+            EditText phoneNumber= findViewById(R.id.phone);
+            EditText fiscalCode= findViewById(R.id.fiscalCode);
 
-            // TODO
-            // controllo se le 2 password corrispondono
-            // esito posivito -> passo alla prossima activity e salva l'utente nel database
-            // esito negativo -> appare un toast
-            // IMPORTANTE: bisogna controllare anche se l'utente non sia già registrato
-            // controllo se esiste nel database solo la mail o codice fiscale)
+            if(password.equals(confirmPassword)) {
+                User user = new User(
+                        email.getText().toString(),
+                        username.getText().toString(),
+                        password.getText().toString(),
+                        LocalDate.parse(dateOfBirth.getText()),
+                        phoneNumber.getText().toString(),
+                        fiscalCode.getText().toString()
+                );
+                MainActivity.userList.add(user);
+            } else {
+                Toast.makeText(this, "the 2 insered password don't match", Toast.LENGTH_LONG).show();
+            }
 
             Intent finalIntent = new Intent(Registration.this, Final_Activity.class);
             startActivity(finalIntent);

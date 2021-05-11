@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/EmailAddress"
+        android:id="@+id/emailAddress"
         android:layout_width="316dp"
         android:layout_height="42dp"
         android:layout_marginStart="22dp"
@@ -47,7 +47,7 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EmailAddress" />
+        app:layout_constraintTop_toBottomOf="@+id/emailAddress" />
 
     <EditText
         android:id="@+id/passwordRegistration"
@@ -92,7 +92,7 @@
         app:layout_constraintTop_toBottomOf="@+id/passwordRegistrationConfirm" />
 
     <EditText
-        android:id="@+id/Phone"
+        android:id="@+id/phone"
         android:layout_width="316dp"
         android:layout_height="42dp"
         android:layout_marginStart="22dp"
@@ -131,5 +131,5 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Phone" />
+        app:layout_constraintTop_toBottomOf="@+id/phone" />
 </androidx.constraintlayout.widget.ConstraintLayout>

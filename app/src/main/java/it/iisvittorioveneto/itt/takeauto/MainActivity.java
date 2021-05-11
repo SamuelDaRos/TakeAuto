@@ -13,10 +13,10 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    static List<User> list=new ArrayList<User>();
+    static List<User> userList = new ArrayList<User>();
 
     public static List<User> getList() {
-        return list;
+        return userList;
     }
 
     @Override

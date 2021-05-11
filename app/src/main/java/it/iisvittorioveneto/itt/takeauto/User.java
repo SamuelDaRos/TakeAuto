@@ -5,18 +5,16 @@ import java.time.LocalDate;
 public class User {
     private String email, username, password;
     private LocalDate dateOfBirth;
-    private String fiscalCode;
+    private String phoneNumber, fiscalCode;
     private Booking booking;
-    private int phoneNumber;
 
-    public User(String email, String username, String password, LocalDate dateOfBirth, String fiscalCode, Booking booking, int phoneNumber) {
+    public User(String email, String username, String password, LocalDate dateOfBirth, String phoneNumber, String fiscalCode) {
         this.email = email;
         this.username = username;
         this.password = password;
         this.dateOfBirth = dateOfBirth;
-        this.fiscalCode = fiscalCode;
-        this.booking = booking;
         this.phoneNumber= phoneNumber;
+        this.fiscalCode = fiscalCode;
     }
 
     public String getEmail() {
@@ -63,15 +61,11 @@ public class User {
         this.fiscalCode = fiscalCode;
     }
 
-    public void setBooking(Booking booking) {
-        this.booking = booking;
-    }
-
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 }
