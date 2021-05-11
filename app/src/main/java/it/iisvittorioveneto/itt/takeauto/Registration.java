@@ -43,12 +43,11 @@ public class Registration extends AppCompatActivity {
                         fiscalCode.getText().toString()
                 );
                 MainActivity.userList.add(user);
+                Intent finalIntent = new Intent(Registration.this, Final_Activity.class);
+                startActivity(finalIntent);
             } else {
                 Toast.makeText(this, "the 2 insered password don't match", Toast.LENGTH_LONG).show();
             }
-
-            Intent finalIntent = new Intent(Registration.this, Final_Activity.class);
-            startActivity(finalIntent);
         });
     }
 }
