@@ -27,7 +27,9 @@ public class Login extends AppCompatActivity {
             // controllo se username e password si trovano nel database
             // esito positivo -> passa alla prossima activity
             // esito negativo -> appare un toast
+            for(int i=0; i< list.length; i++){
 
+            }
             Intent finalIntent = new Intent(Login.this, Final_Activity.class);
             startActivity(finalIntent);
         });

@@ -8,8 +8,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.takeauto.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
+    List<User> list=new ArrayList<User>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

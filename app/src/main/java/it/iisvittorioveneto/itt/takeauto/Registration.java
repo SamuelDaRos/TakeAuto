@@ -25,7 +25,7 @@ public class Registration extends AppCompatActivity {
             EditText password2= findViewById(R.id.passwordRegistrationConfirm);
             EditText dateOfBirth= findViewById(R.id.dateOfBirth);
             EditText phoneNumber= findViewById(R.id.Phone);
-            EditText identityCard= findViewById(R.id.identityCard);
+            EditText identityCard= findViewById(R.id.fiscalCode);
 
             // TODO
             // controllo se le 2 password corrispondono
