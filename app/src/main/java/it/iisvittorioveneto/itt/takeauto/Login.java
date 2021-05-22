@@ -29,6 +29,7 @@ public class Login extends AppCompatActivity {
             // esito positivo -> passa alla prossima activity
             // esito negativo -> appare un toast
 
+
             Boolean user = false;
             for(int i=0; i< MainActivity.userList.size(); i++){
                 if(MainActivity.userList.get(i).getUsername().equals(username.getText().toString()) && MainActivity.userList.get(i).getPassword().equals(password.getText().toString())){
