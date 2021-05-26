@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -25,6 +26,7 @@ public class Login extends AppCompatActivity {
             EditText username= findViewById(R.id.usernameLogin);
             EditText password= findViewById(R.id.passwordLogin);
 
+            // controllo esistenza utente
             for (int i = 0; i < userList.size(); i++) {
                 if (userList.get(i).getUsername().equals(username.getText().toString()) && userList.get(i).getPassword().equals(password.getText().toString())) {
                     Intent finalIntent = new Intent(Login.this, Final_Activity.class);

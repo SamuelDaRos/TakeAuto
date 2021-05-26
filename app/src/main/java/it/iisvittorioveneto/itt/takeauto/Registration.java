@@ -45,50 +45,54 @@ public class Registration extends AppCompatActivity {
             boolean isCorrect = true;
 
             // controllo email
+            // correttezza sintattica
             if (email.toString().isEmpty()) {
-                Toast.makeText(this, "email field can't be empty", Toast.LENGTH_LONG).show();
+                email.setError("email field can't be empty");
                 isCorrect = false;
-                //email.setError("email field can't be empty"); //TODO sarebbe da aggiungere questo per farlo meglio (se funziona.. provare)
             } else if (!Patterns.EMAIL_ADDRESS.matcher(email.toString()).matches()) {
-                Toast.makeText(this, "please enter a vald email address", Toast.LENGTH_LONG).show();
+                email.setError("please enter a valid email address");
                 isCorrect = false;
             }
-
+            // disponibilità email
             for (int i = 0; i < userList.size() && isCorrect; i++) {
                 if (!userList.get(i).getEmail().equals(email.getText().toString())) {
-                    Toast.makeText(this, "The email you entered is already in use, please do login", Toast.LENGTH_LONG).show();
+                    email.setError("email already used, please login or use another email address");
                     isCorrect = false;
                 }
             }
 
             // controllo username
+            // disponibilità username
             for (int i = 0; i < userList.size() && isCorrect; i++) {
                 if (!userList.get(i).getUsername().equals(username.getText().toString())) {
-                    Toast.makeText(this, "The username you entered is already in use", Toast.LENGTH_LONG).show();
+                    username.setError("Username already in use");
                     isCorrect = false;
                 }
             }
 
             // controllo password
+            // password sufficientemente sicura, secondo i parametri specificati
             if (password.toString().isEmpty() && isCorrect) {
-                Toast.makeText(this, "password field can't be empty", Toast.LENGTH_LONG).show();
+                email.setError("password field can't be empty");
                 isCorrect = false;
             } else if (!PASSWORD_PATTERN.matcher(password.toString()).matches()) {
-                Toast.makeText(this, "password too weak", Toast.LENGTH_LONG).show();
+                email.setError("password too weak");
                 isCorrect = false;
             }
-
+            // uguaglianza 2 password inserite
             if (password.getText().toString().equals(confirmPassword.getText().toString()) && isCorrect) {
+                // creazione e aggiunta nuovo utente
                 User user = new User(
                         email.getText().toString(),
                         username.getText().toString(),
                         password.getText().toString()
                 );
                 userList.add(user);
+                // accesso all'applicazione -> schermata visualizzazione stato veicoli
                 Intent finalIntent = new Intent(Registration.this, Login.class);
                 startActivity(finalIntent);
             } else {
-                Toast.makeText(this, "the 2 inserted password don't match", Toast.LENGTH_LONG).show();
+                confirmPassword.setError("the 2 inserted password don't match");
             }
         });
     }
