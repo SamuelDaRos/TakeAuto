@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.takeauto.R;
+import static it.iisvittorioveneto.itt.takeauto.Registration.userList;
 
 public class Login extends AppCompatActivity {
 
@@ -19,29 +20,18 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Button Button1 = this.findViewById(R.id.login2);
-        Button1.setOnClickListener(v3 -> {
-            EditText username= findViewById(R.id.usernameRegistration);
-            EditText password= findViewById(R.id.Password_login);
+        Button buttonLogin = this.findViewById(R.id.buttonLogin);
+        buttonLogin.setOnClickListener(v3 -> {
+            EditText username= findViewById(R.id.usernameLogin);
+            EditText password= findViewById(R.id.passwordLogin);
 
-            // TODO
-            // controllo se username e password si trovano nel database
-            // esito positivo -> passa alla prossima activity
-            // esito negativo -> appare un toast
-
-
-            Boolean user = false;
-            for(int i=0; i< MainActivity.userList.size(); i++){
-                if(MainActivity.userList.get(i).getUsername().equals(username.getText().toString()) && MainActivity.userList.get(i).getPassword().equals(password.getText().toString())){
-                    user=true;
-                    break;
+            for (int i = 0; i < userList.size(); i++) {
+                if (userList.get(i).getUsername().equals(username.getText().toString()) && userList.get(i).getPassword().equals(password.getText().toString())) {
+                    Intent finalIntent = new Intent(Login.this, Final_Activity.class);
+                    startActivity(finalIntent);
+                } else {
+                    Toast.makeText(getApplicationContext(), "username or password wrong", Toast.LENGTH_LONG).show();
                 }
-            }
-            if(user){
-                Intent finalIntent = new Intent(Login.this, Final_Activity.class);
-                startActivity(finalIntent);
-            }else{
-                Toast.makeText(getApplicationContext(), "username or password wrong", Toast.LENGTH_LONG).show();
             }
         });
     }

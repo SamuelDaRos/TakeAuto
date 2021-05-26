@@ -4,17 +4,17 @@ import java.time.LocalDate;
 
 public class User {
     private String email, username, password;
-    //private LocalDate dateOfBirth;
-    //private String phoneNumber, fiscalCode;
+    private LocalDate dateOfBirth;
+    private String phoneNumber, fiscalCode;
     private Booking booking;
 
-    public User(String email, String username, String password/*, LocalDate dateOfBirth, String phoneNumber, String fiscalCode*/) {
+    public User(String email, String username, String password, LocalDate dateOfBirth, String phoneNumber, String fiscalCode) {
         this.email = email;
         this.username = username;
         this.password = password;
-        //this.dateOfBirth = dateOfBirth;
-        //this.phoneNumber= phoneNumber;
-        //this.fiscalCode = fiscalCode;
+        this.dateOfBirth = dateOfBirth;
+        this.phoneNumber= phoneNumber;
+        this.fiscalCode = fiscalCode;
     }
 
     public String getEmail() {
@@ -53,7 +53,7 @@ public class User {
         this.password = password;
     }
 
-    /*public void setDateOfBirth(LocalDate dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -67,5 +67,5 @@ public class User {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }*/
+    }
 }
