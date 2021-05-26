@@ -13,11 +13,6 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    //static List<User> userList = new ArrayList<User>();
-
-    /*public static List<User> getList() {
-        return userList;
-    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

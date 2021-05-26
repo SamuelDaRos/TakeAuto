@@ -8,13 +8,10 @@ public class User {
     private String phoneNumber, fiscalCode;
     private Booking booking;
 
-    public User(String email, String username, String password, LocalDate dateOfBirth, String phoneNumber, String fiscalCode) {
+    public User(String email, String username, String password) {
         this.email = email;
         this.username = username;
         this.password = password;
-        this.dateOfBirth = dateOfBirth;
-        this.phoneNumber= phoneNumber;
-        this.fiscalCode = fiscalCode;
     }
 
     public String getEmail() {

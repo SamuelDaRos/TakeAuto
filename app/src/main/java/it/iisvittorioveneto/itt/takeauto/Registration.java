@@ -30,14 +30,22 @@ public class Registration extends AppCompatActivity {
             EditText username = findViewById(R.id.usernameLogin);
             EditText password = findViewById(R.id.passwordRegistration);
             EditText confirmPassword = findViewById(R.id.passwordRegistrationConfirm);
-            EditText dateOfBirth = findViewById(R.id.dateOfBirth);
-            EditText phoneNumber = findViewById(R.id.phone);
-            EditText fiscalCode = findViewById(R.id.fiscalCode);
+
+            boolean condizione1=true;
 
             // controllo username
             for (int i = 0; i < userList.size(); i++) {
                 if (!userList.get(i).getUsername().equals(username.getText().toString())) {
                     Toast.makeText(this, "The username you entered is already in use", Toast.LENGTH_LONG).show();
+                    condizione1=false;
+                }
+            }
+            //controllo email
+
+            for (int i = 0; i < userList.size(); i++) {
+                if (!userList.get(i).getEmail().equals(email.getText().toString())) {
+                    Toast.makeText(this, "The email you entered is already in use, please do login", Toast.LENGTH_LONG).show();
+                    condizione1=false;
                 }
             }
 
@@ -46,15 +54,14 @@ public class Registration extends AppCompatActivity {
                 User user = new User(
                         email.getText().toString(),
                         username.getText().toString(),
-                        password.getText().toString(),
-                        LocalDate.parse(dateOfBirth.getText()),
-                        phoneNumber.getText().toString(),
-                        fiscalCode.getText().toString()
+                        password.getText().toString()
                 );
-                userList.add(user);
-                Intent finalIntent = new Intent(Registration.this, Login.class);
-                startActivity(finalIntent);
-            } else {
+                if(condizione1==true) {
+                    userList.add(user);
+                    Intent finalIntent = new Intent(Registration.this, Login.class);
+                    startActivity(finalIntent);
+                }
+                } else {
                 Toast.makeText(this, "the 2 inserted password don't match", Toast.LENGTH_LONG).show();
             }
         });
