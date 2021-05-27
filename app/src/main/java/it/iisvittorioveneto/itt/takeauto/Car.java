@@ -41,4 +41,9 @@ public class Car {
     public void setBooking(Booking booking) {
         this.booking = booking;
     }
+
+    @Override
+    public String toString() {
+        return brand + " " + model + ", " + fuelType;
+    }
 }
