@@ -4,8 +4,8 @@ import java.time.LocalDate;
 
 public class User {
     private String email, username, password;
-    private LocalDate dateOfBirth;
-    private String phoneNumber, fiscalCode;
+    //private LocalDate dateOfBirth;
+    //private String phoneNumber, fiscalCode;
     private Booking booking;
 
     public User(String email, String username, String password) {
@@ -18,51 +18,31 @@ public class User {
         return email;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    /*public LocalDate getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public String getFiscalCode() {
-        return fiscalCode;
-    }*/
-
-    public Booking getBooking() {
-        return booking;
-    }
-
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getUsername() {
+        return username;
     }
 
     public void setUsername(String username) {
         this.username = username;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public void setDateOfBirth(LocalDate dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    public Booking getBooking() {
+        return booking;
     }
 
-    public void setFiscalCode(String fiscalCode) {
-        this.fiscalCode = fiscalCode;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setBooking(Booking booking) {
+        this.booking = booking;
     }
 }

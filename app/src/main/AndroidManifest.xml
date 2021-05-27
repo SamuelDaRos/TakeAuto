@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TakeAuto">
-        <activity android:name="it.iisvittorioveneto.itt.takeauto.Final_Activity" />
+        <activity android:name="it.iisvittorioveneto.itt.takeauto.ParkingActivity" />
         <activity android:name="it.iisvittorioveneto.itt.takeauto.Registration" />
         <activity android:name="it.iisvittorioveneto.itt.takeauto.Login" />
         <activity android:name="it.iisvittorioveneto.itt.takeauto.MainActivity">

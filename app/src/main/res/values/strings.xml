@@ -15,5 +15,5 @@
     <string name="phone_number">Phone number</string>
     <string name="postal_Address">Postal address</string>
     <string name="fiscalCode">fiscal Code</string>
-    <string name="final_text">welcome, from here you can see the car available</string>
+    <string name="title_parking">Parking status</string>
 </resources>
