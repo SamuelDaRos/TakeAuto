@@ -45,7 +45,7 @@ public class Registration extends AppCompatActivity {
 
             // controllo email
             // correttezza sintattica
-            if (email.toString().isEmpty()) {
+            if (email.toString().length()==0) {
                 email.setError("email field can't be empty");
                 isCorrect = false;
             } else if (!Patterns.EMAIL_ADDRESS.matcher(email.getText().toString()).matches()) {
