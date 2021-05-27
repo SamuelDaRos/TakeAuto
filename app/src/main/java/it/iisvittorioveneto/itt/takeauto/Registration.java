@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.util.Patterns;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.takeauto.R;
 
@@ -22,8 +21,8 @@ public class Registration extends AppCompatActivity {
     public static final Pattern PASSWORD_PATTERN =
             Pattern.compile("^" +           // regex per controllo password
                     "(?=.*[0-9])" +         // almeno 1 cifra
-                    "(?=.*[a-z])" +         // almeno una cifra minuscola
-                    "(?=.*[A-Z])" +         // almeno una cifra maiuscola
+                    "(?=.*[a-z])" +         // almeno una lettera minuscola
+                    "(?=.*[A-Z])" +         // almeno una lettera maiuscola
                     "(?=.*[@#$%^&+=])" +    // almeno un carattere speciale
                     "(?=\\S+$)" +           // no spazi
                     ".{6,}" +               // almeno 6 caratteri totali
@@ -49,7 +48,7 @@ public class Registration extends AppCompatActivity {
             if (email.toString().isEmpty()) {
                 email.setError("email field can't be empty");
                 isCorrect = false;
-            } else if (!Patterns.EMAIL_ADDRESS.matcher(email.toString()).matches()) {
+            } else if (!Patterns.EMAIL_ADDRESS.matcher(email.getText().toString()).matches()) {
                 email.setError("please enter a valid email address");
                 isCorrect = false;
             }
@@ -73,10 +72,10 @@ public class Registration extends AppCompatActivity {
             // controllo password
             // password sufficientemente sicura, secondo i parametri specificati
             if (password.toString().isEmpty() && isCorrect) {
-                email.setError("password field can't be empty");
+                password.setError("password field can't be empty");
                 isCorrect = false;
-            } else if (!PASSWORD_PATTERN.matcher(password.toString()).matches()) {
-                email.setError("password too weak");
+            } else if (!PASSWORD_PATTERN.matcher(password.getText().toString()).matches()) {
+                password.setError("password too weak");
                 isCorrect = false;
             }
             // uguaglianza 2 password inserite
