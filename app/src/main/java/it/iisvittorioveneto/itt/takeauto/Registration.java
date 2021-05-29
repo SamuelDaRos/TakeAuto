@@ -41,44 +41,33 @@ public class Registration extends AppCompatActivity {
             EditText password = findViewById(R.id.passwordRegistration);
             EditText confirmPassword = findViewById(R.id.passwordRegistrationConfirm);
 
-            boolean isCorrect = true;
+            boolean isCorrect;
 
-            // controllo email
-            // correttezza sintattica
-            if (email.toString().isEmpty()) {
-                email.setError("email field can't be empty");
-                isCorrect = false;
-            } else if (!Patterns.EMAIL_ADDRESS.matcher(email.getText().toString()).matches()) {
+            // controllo correttezza sintattica email
+            isCorrect = checkEmail(email.getText().toString());
+            if (!isCorrect) {
                 email.setError("please enter a valid email address");
-                isCorrect = false;
             }
-            // disponibilità email
-            for (int i = 0; i < userList.size() && isCorrect; i++) {
-                if (!userList.get(i).getEmail().equals(email.getText().toString())) {
-                    email.setError("email already used, please login or use another email address");
-                    isCorrect = false;
-                }
+            // controllo disponibilità email
+            isCorrect = isEmailAvailable(email.getText().toString());
+            if (!isCorrect) {
+                email.setError("email already used, please login or use another email address");
             }
-
-            // controllo username
-            // disponibilità username
-            for (int i = 0; i < userList.size() && isCorrect; i++) {
-                if (!userList.get(i).getUsername().equals(username.getText().toString())) {
+            // controllo disponibilità username (che deve essere lungo più di 3 caratteri)
+            if (username.getText().toString().length() < 3) {
+                isCorrect = isUserAvailable(username.getText().toString());
+                if (!isCorrect) {
                     username.setError("Username already in use");
-                    isCorrect = false;
                 }
+            } else {
+                username.setError("please enter a valid username");
             }
-
-            // controllo password
-            // password sufficientemente sicura, secondo i parametri specificati
-            if (password.toString().isEmpty() && isCorrect) {
-                password.setError("password field can't be empty");
-                isCorrect = false;
-            } else if (!PASSWORD_PATTERN.matcher(password.getText().toString()).matches()) {
+            // controllo password sufficientemente sicura, secondo i parametri specificati
+            isCorrect = checkPassword(password.getText().toString());
+            if (!isCorrect) {
                 password.setError("password too weak");
-                isCorrect = false;
             }
-            // uguaglianza 2 password inserite
+            // controllo uguaglianza 2 password inserite
             if (password.getText().toString().equals(confirmPassword.getText().toString()) && isCorrect) {
                 // creazione e aggiunta nuovo utente
                 User user = new User(
@@ -95,5 +84,30 @@ public class Registration extends AppCompatActivity {
             }
         });
     }
-}
 
+    public boolean checkEmail(String email) {
+        return Patterns.EMAIL_ADDRESS.matcher(email).matches();
+    }
+
+    public boolean isEmailAvailable(String email) {
+        for (int i = 0; i < userList.size(); i++) {
+            if (userList.get(i).getEmail().equals(email)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean isUserAvailable(String username) {
+        for (int i = 0; i < userList.size(); i++) {
+            if (userList.get(i).getUsername().equals(username)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean checkPassword(String password) {
+        return PASSWORD_PATTERN.matcher(password).matches();
+    }
+}
