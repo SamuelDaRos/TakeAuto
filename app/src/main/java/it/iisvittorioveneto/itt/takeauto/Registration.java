@@ -54,13 +54,13 @@ public class Registration extends AppCompatActivity {
                 email.setError("email already used, please login or use another email address");
             }
             // controllo disponibilità username (che deve essere lungo più di 3 caratteri)
-            if (username.getText().toString().length() < 3) {
+            if (!username.getText().toString().isEmpty()) {
                 isCorrect = isUserAvailable(username.getText().toString());
                 if (!isCorrect) {
                     username.setError("Username already in use");
                 }
             } else {
-                username.setError("please enter a valid username");
+                username.setError("username field can't be empty");
             }
             // controllo password sufficientemente sicura, secondo i parametri specificati
             isCorrect = checkPassword(password.getText().toString());
