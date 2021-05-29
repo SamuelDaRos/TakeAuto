@@ -14,6 +14,7 @@ import static it.iisvittorioveneto.itt.takeauto.Registration.userList;
 
 public class Login extends AppCompatActivity {
 
+    User actualUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,10 +43,15 @@ public class Login extends AppCompatActivity {
         for (int i = 0; i < userList.size(); i++) {
             if (userList.get(i).getUsername().equals(username) && userList.get(i).getPassword().equals(password)){
                 exist=true;
+                actualUser=userList.get(i);
             } else {
                 exist=false;
             }
         }
         return exist;
+    }
+
+    public User getActualUser(){
+        return this.actualUser;
     }
 }

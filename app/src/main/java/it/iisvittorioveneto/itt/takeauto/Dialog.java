@@ -42,8 +42,8 @@ public class Dialog extends AppCompatDialogFragment{
                     }
 
                 });
-        editTextDateStart= view.findViewById(R.id.edit_username);
-        editTextDateFinish= view.findViewById(R.id.edit_password);
+        editTextDateStart= view.findViewById(R.id.editTextDateStart);
+        editTextDateFinish= view.findViewById(R.id.editTextDateFinish);
         return builder.create();
     }
 
