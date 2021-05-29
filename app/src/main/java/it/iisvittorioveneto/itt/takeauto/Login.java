@@ -22,18 +22,30 @@ public class Login extends AppCompatActivity {
 
         Button buttonLogin = this.findViewById(R.id.buttonLogin);
         buttonLogin.setOnClickListener(v3 -> {
-            EditText username= findViewById(R.id.usernameLogin);
-            EditText password= findViewById(R.id.passwordLogin);
+            EditText usern= findViewById(R.id.usernameLogin);
+            EditText psw= findViewById(R.id.passwordLogin);
+            String username=usern.getText().toString();
+            String password=psw.getText().toString();
 
-            // controllo esistenza utente
-            for (int i = 0; i < userList.size(); i++) {
-                if (userList.get(i).getUsername().equals(username.getText().toString()) && userList.get(i).getPassword().equals(password.getText().toString())) {
-                    Intent finalIntent = new Intent(Login.this, ParkingActivity.class);
-                    startActivity(finalIntent);
-                } else {
-                    Toast.makeText(getApplicationContext(), "username or password wrong", Toast.LENGTH_LONG).show();
-                }
+            if(UserExist(username, password)){
+                Intent finalIntent = new Intent(Login.this, ParkingActivity.class);
+                startActivity(finalIntent);
+            }else{
+                Toast.makeText(getApplicationContext(), "username or password wrong", Toast.LENGTH_LONG).show();
             }
+
         });
+    }
+
+    public boolean UserExist(String username, String password){
+        boolean exist=true;
+        for (int i = 0; i < userList.size(); i++) {
+            if (userList.get(i).getUsername().equals(username) && userList.get(i).getPassword().equals(password)){
+                exist=true;
+            } else {
+                exist=false;
+            }
+        }
+        return exist;
     }
 }
