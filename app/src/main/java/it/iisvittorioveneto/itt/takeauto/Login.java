@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.takeauto.R;
+
 import static it.iisvittorioveneto.itt.takeauto.Registration.userList;
 
 public class Login extends AppCompatActivity {
@@ -23,35 +24,30 @@ public class Login extends AppCompatActivity {
 
         Button buttonLogin = this.findViewById(R.id.buttonLogin);
         buttonLogin.setOnClickListener(v3 -> {
-            EditText usern= findViewById(R.id.usernameLogin);
-            EditText psw= findViewById(R.id.passwordLogin);
-            String username=usern.getText().toString();
-            String password=psw.getText().toString();
+            EditText user = findViewById(R.id.usernameLogin);
+            EditText psw = findViewById(R.id.passwordLogin);
+            String username = user.getText().toString();
+            String password = psw.getText().toString();
 
-            if(UserExist(username, password)){
-                Intent finalIntent = new Intent(Login.this, ParkingActivity.class);
-                startActivity(finalIntent);
-            }else{
+            if (userExist(username, password)) {
+                Intent parkingIntent = new Intent(Login.this, ParkingActivity.class);
+                startActivity(parkingIntent);
+            } else {
                 Toast.makeText(getApplicationContext(), "username or password wrong", Toast.LENGTH_LONG).show();
             }
-
         });
     }
 
-    public boolean UserExist(String username, String password){
-        boolean exist=true;
+    public boolean userExist(String username, String password) {
         for (int i = 0; i < userList.size(); i++) {
-            if (userList.get(i).getUsername().equals(username) && userList.get(i).getPassword().equals(password)){
-                exist=true;
-                actualUser=userList.get(i);
-            } else {
-                exist=false;
+            if (!(userList.get(i).getUsername().equals(username) && userList.get(i).getPassword().equals(password))) {
+                return false;
             }
         }
-        return exist;
+        return true;
     }
 
-    public User getActualUser(){
+    public User getActualUser() {
         return this.actualUser;
     }
 }

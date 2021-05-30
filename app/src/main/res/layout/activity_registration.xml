@@ -19,7 +19,9 @@
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="208dp" />
 
     <EditText
         android:id="@+id/emailAddress"
@@ -33,7 +35,9 @@
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textRegistration" />
+        app:layout_constraintTop_toBottomOf="@+id/textRegistration"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="73dp" />
 
     <EditText
         android:id="@+id/usernameLogin"
@@ -47,7 +51,9 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailAddress" />
+        app:layout_constraintTop_toBottomOf="@+id/emailAddress"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="73dp" />
 
     <EditText
         android:id="@+id/passwordRegistration"
@@ -61,7 +67,9 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usernameLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/usernameLogin"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="73dp" />
 
     <EditText
         android:id="@+id/passwordRegistrationConfirm"
@@ -75,7 +83,9 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordRegistration" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordRegistration"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="73dp" />
 
     <EditText
         android:id="@+id/dateOfBirth"
@@ -89,7 +99,9 @@
         android:inputType="date"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordRegistrationConfirm" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordRegistrationConfirm"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="72dp" />
 
     <EditText
         android:id="@+id/phone"
@@ -103,7 +115,9 @@
         android:inputType="phone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dateOfBirth" />
+        app:layout_constraintTop_toBottomOf="@+id/dateOfBirth"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="72dp" />
 
     <Button
         android:id="@+id/buttonConfirm"
@@ -117,7 +131,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fiscalCode" />
+        app:layout_constraintTop_toBottomOf="@+id/fiscalCode"
+        android:layout_marginLeft="134dp"
+        android:layout_marginRight="135dp" />
 
     <EditText
         android:id="@+id/fiscalCode"
@@ -131,5 +147,7 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phone" />
+        app:layout_constraintTop_toBottomOf="@+id/phone"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="73dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

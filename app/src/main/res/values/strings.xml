@@ -16,7 +16,8 @@
     <string name="postal_Address">Postal address</string>
     <string name="fiscalCode">fiscal Code</string>
     <string name="title_parking">Parking status</string>
-    <string name="insert_booking">insert booking information</string>
-    <string name="start_booking">start date.....</string>
+    <string name="insert_booking">insert booking info</string>
+    <string name="start_booking">start date…</string>
+    <string name="end_booking">end date…</string>
     <string name="add_button">Add Data</string>
 </resources>

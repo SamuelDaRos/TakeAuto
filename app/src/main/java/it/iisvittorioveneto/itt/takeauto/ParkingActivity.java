@@ -10,9 +10,17 @@ import android.widget.TextView;
 
 import com.example.takeauto.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class    ParkingActivity extends AppCompatActivity {
     public static final int MAX_CAR = 4;
+
+    // lista di tutte le auto
     public Car[] cars = new Car[MAX_CAR];
+
+    // lista di tutte le prenotazioni
+    List<Booking> bookings = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +45,7 @@ public class    ParkingActivity extends AppCompatActivity {
         carsState[2] = findViewById(R.id.car3State);
         carsState[3] = findViewById(R.id.car4State);
 
+        // colore di sfondo di tutte le auto settato a verde
         for (int i = 0; i < MAX_CAR; i++) {
             carsView[i].setBackgroundColor(getResources().getColor(R.color.green));
         }
@@ -75,6 +84,7 @@ public class    ParkingActivity extends AppCompatActivity {
             if(resultCode == RESULT_OK) {
                 String startDate = data.getStringExtra("startDate");
                 String finishDate = data.getStringExtra("finishDate");
+                //bookings.add(new Booking(startDate, finishDate, car));
             }
         }
     }

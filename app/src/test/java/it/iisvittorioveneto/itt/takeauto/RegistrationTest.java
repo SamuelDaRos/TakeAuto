@@ -21,7 +21,7 @@ public class RegistrationTest {
     public void tearDown() throws Exception {
     }
 
-    // TODO non funziona il controllo della mail sul test
+    // TODO non funziona il controllo della mail sul test, NullPointerException...
     @Test
     public void testCheckEmail() {
         assertFalse(r.checkEmail("fakeEmail.hi"));
@@ -34,6 +34,7 @@ public class RegistrationTest {
         Registration.userList.add(user);
         assertFalse(r.isEmailAvailable(user.getEmail()));
         assertTrue(r.isEmailAvailable("fakeEmail@something.com"));
+        Registration.userList.remove(user);
     }
 
     @Test
@@ -42,6 +43,7 @@ public class RegistrationTest {
         Registration.userList.add(user);
         assertFalse(r.isUserAvailable(user.getUsername()));
         assertTrue(r.isUserAvailable("HowAreYouWorld"));
+        Registration.userList.remove(user);
     }
 
     @Test
