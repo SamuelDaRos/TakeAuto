@@ -2,6 +2,7 @@ package it.iisvittorioveneto.itt.takeauto;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -9,7 +10,7 @@ import android.widget.TextView;
 
 import com.example.takeauto.R;
 
-public class ParkingActivity extends AppCompatActivity {
+public class    ParkingActivity extends AppCompatActivity {
     public static final int MAX_CAR = 4;
     public Car[] cars = new Car[MAX_CAR];
 
@@ -44,7 +45,7 @@ public class ParkingActivity extends AppCompatActivity {
         cars[0] = new Car("Fiat", "Panda 4x4 1000 Sysley", "Benzina");
         cars[1] = new Car("Lancia", "Delta integrale", "benzina");
         cars[2] = new Car("Porche", "911 GT3", "benzina");
-        cars[3] = new Car("BMW", "Serie 4 Gran Coupé", "benzina");
+        cars[3] = new Car("BMW", "M4 Gran Coupé", "benzina");
 
         for (int i = 0; i < MAX_CAR; i++) {
             carsState[i].setText(cars[i].toString());
@@ -54,13 +55,27 @@ public class ParkingActivity extends AppCompatActivity {
     // metodo che viene eseguito al click di ogni immagine: permette di prenotare l'auto associata all'immagine
     public void onCarImageClick(View view) {
         if (view.getId() == R.id.imgCar1) {
-            // TODO chiamate a dialogue
-        } else if (view.getId() == R.id.imgCar2) {
-
+            Intent bookingIntent = new Intent(ParkingActivity.this, BookingActivity.class);
+            startActivityForResult(bookingIntent, 1);
+            } else if (view.getId() == R.id.imgCar2) {
+            Intent bookingIntent = new Intent(ParkingActivity.this, BookingActivity.class);
+            startActivityForResult(bookingIntent, 1);
         } else if (view.getId() == R.id.imgCar3) {
-
+            Intent bookingIntent = new Intent(ParkingActivity.this, BookingActivity.class);
+            startActivityForResult(bookingIntent, 1);
         } else if (view.getId() == R.id.imgCar4) {
+            Intent bookingIntent = new Intent(ParkingActivity.this, BookingActivity.class);
+            startActivityForResult(bookingIntent, 1);
+        }
+    }
 
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1) {
+            if(resultCode == RESULT_OK) {
+                String startDate = data.getStringExtra("startDate");
+                String finishDate = data.getStringExtra("finishDate");
+            }
         }
     }
 }
